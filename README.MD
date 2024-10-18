@@ -1,4 +1,4 @@
-# Sistema de Gerenciamento de Abrigo de Animais
+# Sistema de Gerenciamento de Abrigo de Animais 🐾🐾
 
 ## Visão Geral do Projeto
 Este projeto é o desafio final do **Bootcamp Back-End Python e Django** da WoMakersCode. O objetivo é desenvolver um **Sistema de Gerenciamento de Abrigo de Animais Responsivo** utilizando **Django**, que permitirá aos usuários visualizar animais disponíveis para adoção e gerenciar solicitações de adoção.
@@ -23,3 +23,70 @@ Este projeto é o desafio final do **Bootcamp Back-End Python e Django** da WoMa
 - Rosana de Souza Brito - [GitHhub](https://github.com/RosanaBrito) - [Likedin](https://www.linkedin.com/in/rosanadesouzabrito/);
 
 ### 🤝 Divisão das Tarefas
+
+- **Configurações iniciais e Django Admin** - Fabiana
+- **Models**
+- **Views**
+- **Templates**
+- **Apresentação**
+
+
+### 📥 Download do Projeto
+
+1. **Clonando o Repositório**
+Primeiro, faça o clone do repositório para sua máquina local utilizando o comando:
+
+```bash
+   git clone https://github.com/Squad-eniac/abrigo_animais_SquadENIAC.git
+   cd abrigo_animais_SquadENIAC/
+```
+
+2. **Criando e Ativando o Ambiente Virtual**
+Crie um ambiente virtual para isolar as dependências do projeto:
+
+```bash
+python -m venv .venv 
+```
+
+Ative o ambiente virtual:
+
+- Para Linux ou macOS
+
+```bash
+source .venv/bin/activate
+```
+
+- Para Windows
+
+```bash
+.\.venv\Scripts\activate
+```
+
+3. **Instalando as Dependências**
+Com o ambiente virtual ativado, instale as dependências do projeto:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. **Executando as Migrações:**
+Navegue até o diretório do projeto base e execute as migrações:
+
+```bash
+cd animal_shelter/
+python manage.py migrate
+```
+
+8. **Criando um Superusuário**
+Para acessar o painel administrativo, crie um superusuário:
+
+```bash
+python manage.py createsuperuser
+```
+
+9. **Executando a aplicação**
+Execute o servidor local para rodar o projeto:
+
+```bash
+python manage.py runserver
+```
