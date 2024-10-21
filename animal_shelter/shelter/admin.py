@@ -2,11 +2,18 @@ from django.contrib import admin
 from .models import Animal, Adoption, Staff
 
 
+'''class AnimalAdmin(admin.ModelAdmin):
+    list_display = ('name', 'species', 'age', 'breed', 'health_history')
+    search_fields = ['name', 'species', 'breed']
+    list_filter = ['species', 'breed']
+    ordering = ['species']'''
+
+
 class AnimalAdmin(admin.ModelAdmin):
     list_display = ['name', 'species', 'age', 'breed', 'health_history']
     search_fields = ['name', 'species', 'breed']
     list_filter = ['species', 'breed']
-    ordering = ['species']
+    ordering = ['name']
 
 
 class AdoptionAdmin(admin.ModelAdmin):
@@ -23,6 +30,6 @@ class StaffAdmin(admin.ModelAdmin):
     ordering = ['name']
 
 
-admin.site.register(Animal)
-admin.site.register(Adoption)
-admin.site.register(Staff)
+admin.site.register(Animal, AnimalAdmin)
+admin.site.register(Adoption, AdoptionAdmin)
+admin.site.register(Staff, StaffAdmin)
