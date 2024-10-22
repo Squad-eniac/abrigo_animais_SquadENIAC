@@ -8,6 +8,7 @@ class Animal(models.Model):
     breed = models.CharField(max_length=30)
     enabled = models.BooleanField(default=True)
     health_history = models.TextField()
+    image = models.ImageField(upload_to='animals/', null=True, blank=True)
 
     def __str__(self):
         return f'{self.name}: {self.species} - {self.age} - {self.breed} - {self.health_history}'
