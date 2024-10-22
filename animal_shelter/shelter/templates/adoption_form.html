@@ -8,6 +8,9 @@
 <body>
     <h1>Formulário de Adoção</h1>
     <h2>Adote {{ animal.name }}</h2>
+    {% if animal.image %}
+    <img src="{{ animal.image.url }}" alt="{{ animal.name }}" style="max-width: 200px;">
+    {% endif %}
     <p>Espécie: {{ animal.species }}</p>
     <p>Raça: {{ animal.breed }}</p>
     <p>Idade: {{ animal.age }}</p>
