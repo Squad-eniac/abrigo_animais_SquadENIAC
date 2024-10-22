@@ -2,18 +2,12 @@ from django.contrib import admin
 from .models import Animal, Adoption, Staff
 
 
-'''class AnimalAdmin(admin.ModelAdmin):
-    list_display = ('name', 'species', 'age', 'breed', 'health_history')
-    search_fields = ['name', 'species', 'breed']
-    list_filter = ['species', 'breed']
-    ordering = ['species']'''
-
-
 class AnimalAdmin(admin.ModelAdmin):
-    list_display = ['name', 'species', 'age', 'breed', 'health_history', 'enabled']
+    list_display = ['name', 'species', 'age', 'breed', 'health_history', 'enabled', 'image']
     search_fields = ['name', 'species', 'breed', 'enabled']
     list_filter = ['species', 'breed', 'enabled']
     ordering = ['name']
+    fields = ['name', 'species', 'age', 'breed', 'health_history', 'enabled', 'image']
 
 
 class AdoptionAdmin(admin.ModelAdmin):

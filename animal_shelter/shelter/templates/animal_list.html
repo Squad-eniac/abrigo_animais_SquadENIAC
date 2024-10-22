@@ -1,23 +1,24 @@
-
 {% block content %}
-  <h1>Lista de Animais Disponíveis</h1>
-  
-  <form method="GET">
-    <input type="text" name="search_term" placeholder="Buscar" value="{{ search_query }}">
-    <button type="submit">Buscar</button>
-  </form>
-  
-  <ul>
-    {% for animal in animals %}
-      <li>
-      
-          {{ animal.name }} - {{ animal.species }} - {{ animal.age }} anos - {{animal.breed}} - {{animal.health_history}}
-       
-      </li>
-    {% empty %}
-      <li>Nenhum animal encontrado.</li>
-    {% endfor %}
-  </ul>
+<h1>Lista de Animais Disponíveis</h1>
 
-  
+<form method="GET">
+  <input type="text" name="search_term" placeholder="Buscar" value="{{ search_query }}">
+  <button type="submit">Buscar</button>
+</form>
+
+<ul>
+  {% for animal in animals %}
+  <li>
+    {% if animal.image %}
+    <img src="{{ animal.image.url }}" alt="{{ animal.name }}" style="max-width: 200px;">
+    {% endif %}
+
+    {{ animal.name }} - {{ animal.species }} - {{ animal.age }} anos - {{animal.breed}} - {{animal.health_history}}
+  </li>
+  {% empty %}
+  <li>Nenhum animal encontrado.</li>
+  {% endfor %}
+</ul>
+
+
 {% endblock %}
