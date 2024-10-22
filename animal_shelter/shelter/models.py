@@ -10,6 +10,11 @@ class Animal(models.Model):
     health_history = models.TextField()
     image = models.ImageField(upload_to='animals/', null=True, blank=True)
 
+    # Adicionando o campo de descrição
+    description = models.TextField(null=True, blank=True)
+
+    is_available = models.BooleanField(default=True)
+    
     def __str__(self):
         return f'{self.name}: {self.species} - {self.age} - {self.breed} - {self.health_history}'
     
