@@ -6,6 +6,7 @@ class Animal(models.Model):
     species = models.CharField(max_length=30)
     age = models.IntegerField()
     breed = models.CharField(max_length=30)
+    enabled = models.BooleanField(default=True)
     health_history = models.TextField()
 
     def __str__(self):

@@ -1,0 +1,23 @@
+
+{% block content %}
+  <h1>Lista de Animais Disponíveis</h1>
+  
+  <form method="GET">
+    <input type="text" name="search_term" placeholder="Buscar" value="{{ search_query }}">
+    <button type="submit">Buscar</button>
+  </form>
+  
+  <ul>
+    {% for animal in animals %}
+      <li>
+      
+          {{ animal.name }} - {{ animal.species }} - {{ animal.age }} anos - {{animal.breed}} - {{animal.health_history}}
+       
+      </li>
+    {% empty %}
+      <li>Nenhum animal encontrado.</li>
+    {% endfor %}
+  </ul>
+
+  
+{% endblock %}

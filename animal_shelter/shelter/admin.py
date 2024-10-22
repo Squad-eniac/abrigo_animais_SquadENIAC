@@ -10,9 +10,9 @@ from .models import Animal, Adoption, Staff
 
 
 class AnimalAdmin(admin.ModelAdmin):
-    list_display = ['name', 'species', 'age', 'breed', 'health_history']
-    search_fields = ['name', 'species', 'breed']
-    list_filter = ['species', 'breed']
+    list_display = ['name', 'species', 'age', 'breed', 'health_history', 'enabled']
+    search_fields = ['name', 'species', 'breed', 'enabled']
+    list_filter = ['species', 'breed', 'enabled']
     ordering = ['name']
 
 
