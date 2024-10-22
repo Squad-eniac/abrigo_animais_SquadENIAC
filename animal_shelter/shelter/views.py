@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.views.generic import ListView, FormView
+from django.views.generic import ListView, FormView, DetailView  # Adicione a importação de DetailView
 from .models import Animal, Adoption
 from django.db.models import Q
 from .forms import AdoptionForm
@@ -56,3 +56,10 @@ class AdoptionRequestView(FormView):
         animal = get_object_or_404(Animal, id=animal_id)
         context['animal'] = animal
         return context
+
+
+# A nova View de Detalhes do Animal
+class AnimalDetailView(DetailView):
+    model = Animal  # O modelo que será utilizado
+    template_name = 'animal_detail.html'  # O template que será renderizado
+    context_object_name = 'animal'  # O nome da variável no template
