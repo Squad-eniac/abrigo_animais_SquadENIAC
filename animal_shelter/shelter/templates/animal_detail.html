@@ -6,12 +6,14 @@
     <title>Detalhes do Animal</title>
 </head>
 <body>
+    {% if animal.image %}
+    <img src="{{ animal.image.url }}" alt="{{ animal.name }}" style="max-width: 200px;">
+    {% endif %}
     <h1>Detalhes do Animal: {{ animal.name }}</h1>
     <p>Idade: {{ animal.age }} anos</p>
     <p>Raça: {{ animal.breed }}</p>
     <p>Descrição: {{ animal.description }}</p>
     <p>Histórico de saúde: {{ animal.health_history }}</p>
-    <p>Descrição: {{ animal.description }}</p>
     <p>Disponível para adoção: {{ animal.is_available }}</p>
 </body>
 </html>
