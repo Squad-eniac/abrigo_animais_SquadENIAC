@@ -9,14 +9,16 @@ class Animal(models.Model):
     enabled = models.BooleanField(default=True)
     health_history = models.TextField()
     image = models.ImageField(upload_to='animals/', null=True, blank=True)
-
-    # Adicionando o campo de descrição
     description = models.TextField(null=True, blank=True)
-
     is_available = models.BooleanField(default=True)
     
     def __str__(self):
-        return f'{self.name}: {self.species} - {self.age} - {self.breed} - {self.health_history}'
+        return f'{self.name} - {self.species} - {self.breed}'
+    
+    def summary_description(self):
+        if self.description:
+            return (self.description[:50] + '...') if len(self.description) > 50 else self.description
+        return ''
     
     class Meta:
         verbose_name = 'Animal'

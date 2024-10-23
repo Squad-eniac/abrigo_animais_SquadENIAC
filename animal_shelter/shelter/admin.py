@@ -3,11 +3,11 @@ from .models import Animal, Adoption, Staff
 
 
 class AnimalAdmin(admin.ModelAdmin):
-    list_display = ['name', 'species', 'age', 'breed', 'health_history', 'enabled', 'image']
+    list_display = ['name', 'species', 'age', 'breed',  'enabled', 'image', 'summary_description']
     search_fields = ['name', 'species', 'breed', 'enabled']
     list_filter = ['species', 'breed', 'enabled']
     ordering = ['name']
-    fields = ['name', 'species', 'age', 'breed', 'health_history', 'enabled', 'image']
+    fields = ['name', 'species', 'age', 'breed', 'description', 'health_history', 'enabled', 'image']
 
 
 class AdoptionAdmin(admin.ModelAdmin):
