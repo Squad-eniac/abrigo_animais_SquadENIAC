@@ -1,0 +1,48 @@
+{% load static %}
+{% load django_bootstrap5 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adopt - Seu novo amigo está aqui!</title>
+
+    <!-- bootstrap/custom -->
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'shelter/custom.css' %}">
+
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/ea79fea873.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <!-- navbar e search bar-->
+    <nav class="navbar navbar-expand-lg sticky-top navbar-custom ">
+        <div class="container-fluid container">
+            <a class="navbar-brand"><a class="navbar-brand-custom" href="/">Pet Adopt</a></a>
+            <button class="navbar-toggler navbar-toggle-custom" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars" style="color: white;"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <form method="get" class="d-flex ms-auto form-custom" role="search">
+                    <input class="form-control me-2" type="text" name="search_term" placeholder="Buscar animalzinho" aria-label="Buscar animalzinho" value="{{ search_query }}">
+                    <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+        {% block content %}
+        <h1>main do site</h1>
+        {% endblock %}
+    
+    <!-- rodapé com link github-->
+    <footer class="fixed-bottom footer-custom d-flex">
+        <div class="container-fluid d-flex flex-row justify-content-center align-items-center">
+
+            <span class="d-flex navbar-brand footer-item-custom">desenvolvido por <a href="https://github.com/Squad-eniac/abrigo_animais_SquadENIAC" target="_blank">squad ENIAC</a></span>
+        </div>
+    </footer>
+</body>
+</html>
