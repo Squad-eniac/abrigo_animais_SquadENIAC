@@ -15,5 +15,6 @@
     <p>Descrição: {{ animal.description }}</p>
     <p>Histórico de saúde: {{ animal.health_history }}</p>
     <p>Disponível para adoção: {{ animal.is_available }}</p>
+    <p><a href="{% url 'adoption_request' animal.id %}">Clique aqui para adotar</a></p>
 </body>
 </html>

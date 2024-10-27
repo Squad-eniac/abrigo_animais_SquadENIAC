@@ -1,0 +1,26 @@
+.input-custom {
+    border: 1px solid #F25287;
+    border-radius: 50px;
+    outline: none; 
+    font-size: 16px; 
+    width: 100%;
+    padding: 10px;
+  }
+
+.form-container {
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+  }
+
+.formAdoption-custom {
+    width: 100%;
+}
+
+.btnAdoption-custom{
+    width: 100%;
+    border-radius: 50px;
+    border: none;
+    padding: 10px;
+    margin-bottom: 60px;
+}

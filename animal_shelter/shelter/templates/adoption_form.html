@@ -1,26 +1,72 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Solicitação de Adoção</title>
-</head>
-<body>
-    <h1>Formulário de Adoção</h1>
-    <h2>Adote {{ animal.name }}</h2>
-    {% if animal.image %}
-    <img src="{{ animal.image.url }}" alt="{{ animal.name }}" style="max-width: 200px;">
+{% extends 'layout.html' %}
+
+{% block content %}
+  <div class="container">
+    {% if not adoption_success %}
+      <!-- Títulos e mensagens de boas-vindas -->
+      <div class="title text-center my-4">
+        <h1>Uma nova família está se formando...</h1>
+        <h3>Estamos muito felizes que tenha decidido pela adoção!</h3>
+        <h3>A seguir, precisamos de algumas informações para agilizarmos o processo para a chegada de seu novo amigo ❤️</h3>
+      </div>
+
+      <!-- Container do formulário -->
+      <div class="form-container mx-auto">
+
+        <!-- Título do formulário -->
+        <div class="title text-center mb-4">
+          <br />
+          <h1>Formulário de Adoção</h1>
+        </div>
+        <p>
+          Animal Escolhido: {{ animal.name }}
+          <br />
+          Solicitado em: {% now 'd/m/Y H:i' %}
+        </p>
+
+        <!-- Formulário de adoção -->
+        <form method="post" class="formAdoption-custom">
+          {% csrf_token %}
+
+          <div class="col-md-6 mb-3 formAdoption-custom">
+            <input type="hidden" name="animal_name" id="id_animal_name" class="input-custom" value="{{ animal.name }}" readonly />
+          </div>
+
+          <div class="col-md-6 mb-3 formAdoption-custom">
+            <input type="hidden" name="species" id="id_species" class="input-custom" value="{{ animal.species }}" readonly />
+          </div>
+
+          <div class="col-md-6 mb-3 formAdoption-custom">
+            <select name="adopter" id="id_adopter" required class="input-custom">
+              <option value="" disabled selected>Escolha um cuidador</option>
+              {% for carer in carers %}
+                <option value="{{ carer.id }}">{{ carer.name }}</option>
+              {% endfor %}
+            </select>
+          </div>
+
+          <div class="col-md-6 mb-3 formAdoption-custom">
+            <input type="date" name="request_date" id="id_request_date" class="input-custom" required value="{% now 'Y-m-d' %}" />
+          </div>
+
+          <div class="col-md-6 mb-3 formAdoption-custom">
+            <select name="status" id="id_status" required class="input-custom">
+              <option value="Not Adopted">Não Adotado</option>
+              <option value="Adopted">Adotado</option>
+            </select>
+          </div>
+
+          <div class="col-12 text-center mt-4 formAdoption-custom">
+            <button type="submit" class="btn btn-primary btn btn-custom btnAdoption-custom">ENVIAR FORMULÁRIO</button>
+          </div>
+        </form>
+      </div>
+    {% else %}
+        <div class="title text-center my-4">
+            <h3 class="text-center" style="margin: 150px;">Adoção concluída com sucesso! Obrigado por fazer a diferença! ❤️</h3>
+            <button class="btn btn-primary btn btn-custom" onclick="window.location.href = '/';">Voltar para a página inicial</button>
+
+        </div>
     {% endif %}
-    <p>Espécie: {{ animal.species }}</p>
-    <p>Raça: {{ animal.breed }}</p>
-    <p>Idade: {{ animal.age }}</p>
-
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Enviar Solicitação</button>
-    </form>
-
-    <a href="{% url 'animal_list' %}">Voltar para a lista de animais</a>
-</body>
-</html>
+  </div>
+{% endblock %}
