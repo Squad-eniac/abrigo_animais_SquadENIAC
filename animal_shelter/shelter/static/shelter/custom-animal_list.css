@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Protest+Strike&display=swap');
 
+/* manter a altura do container e evitar cortes no conteúdo */
 .container {
     height: 80%;
     overflow-y: scroll;
@@ -25,33 +26,50 @@
     font-size: 24px;
 }
 
+/* disposição dos cards */
+.list-animals {
+    justify-content: space-around;
+}
+
+/* card dos animais */
 .card-custom {
     width: 15rem;
     background-color: #FFDFDF;
     margin-bottom: 24px;
 }
 
-.list-animals {
-    justify-content: space-around;
-
-}
-
+/* img do card dos animais */
 .card-img-custom {
     padding: 10px;
 }
 
+/* informações dos pets (nome, raça) */
 .card-body-custom {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
+/* nome do pet - estilização */
 .card-body-custom h5 {
     font-family: 'Protest Strike', serif;
     font-weight: bold;
 }
 
+/* raça do pet - estilização */
 .card-body-custom p {
     font-family: 'Montserrat', serif;
 }
 
+/* btn de adotar */
+.btn-custom {
+    background-color: #F25287;
+    font-family: 'Protest Strike';
+    color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;}
+
+.btn-custom:hover {
+    background-color: #F25287;
+    color: white;
+    transform: scale(1.05);
+}
