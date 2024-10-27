@@ -1,24 +1,33 @@
+{% extends 'layout.html' %}
+
 {% block content %}
-<h1>Lista de Animais Disponíveis</h1>
+<div class="container">
+    <div class="title">
+        <h1>Seu novo amigo está aqui!</h1>
+        <h3>Diversos doguíneos e gatinhos ansiosos para conhecer seu novo lar</h3>
+    </div>
 
-<form method="GET">
-  <input type="text" name="search_term" placeholder="Buscar" value="{{ search_query }}">
-  <button type="submit">Buscar</button>
-</form>
-
-<ul>
-  {% for animal in animals %}
-  <li>
-    {% if animal.image %}
-    <img src="{{ animal.image.url }}" alt="{{ animal.name }}" style="max-width: 200px;">
-    {% endif %}
-
-    {{ animal.name }} - {{ animal.species }} - {{ animal.age }} anos - {{animal.breed}} - {{animal.health_history}}
-  </li>
-  {% empty %}
-  <li>Nenhum animal encontrado.</li>
-  {% endfor %}
-</ul>
-
-
+    <div class="row d-flex list-animals">
+        {% for animal in animals %}
+        <div class="card card-custom">
+            {% if animal.image %}
+            <div class="card-img-custom">
+                <img class="card-img-top" src="{{ animal.image.url }}" alt="{{ animal.name }}">
+            </div>
+            {% endif %}
+            <div class="card-body card-body-custom">
+                <h5 class="card-title">{{ animal.name }}</h5>
+                <p class="card-text">
+                    Raça: {{animal.breed}}
+                </p>
+                <a href="/animal/{{animal.id}}" class="btn btn-custom">Quero Adotar</a>
+            </div>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <h3>Nenhum animal encontrado com esses filtros</h3>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Protest+Strike&display=swap');
+
+.container {
+    height: 80%;
+    overflow-y: scroll;
+}
+
+/*  alinhamento, cor e margin da div*/
+.title {
+    text-align: center;
+    color: #F25287;
+    margin: 24px 0;
+}
+
+/* estilo tag h1 - titulo */
+.title h1 {
+    font-family: "Protest Strike";
+}
+
+/* estilo tag h2 - titulo */
+.title h3 {
+    font-family: "Montserrat", serif;
+    color: black;
+    font-weight: 300;
+    font-size: 24px;
+}
+
+.card-custom {
+    width: 15rem;
+    background-color: #FFDFDF;
+    margin-bottom: 24px;
+}
+
+.list-animals {
+    justify-content: space-around;
+
+}
+
+.card-img-custom {
+    padding: 10px;
+}
+
+.card-body-custom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.card-body-custom h5 {
+    font-family: 'Protest Strike', serif;
+    font-weight: bold;
+}
+
+.card-body-custom p {
+    font-family: 'Montserrat', serif;
+}
+
