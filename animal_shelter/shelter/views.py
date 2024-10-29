@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, FormView, DetailView  # Adicione a importação de DetailView
-from .models import Animal, Adoption
+from .models import Animal, Adoption, Staff
 from django.db.models import Q
 from .forms import AdoptionForm
+from django.contrib import messages
 from django.http import HttpResponse
 
 
@@ -47,7 +48,8 @@ class AdoptionRequestView(FormView):
         adoption.animal = animal  
         adoption.save()  
 
-        return HttpResponse("Adoção solicitada com sucesso! Aguardando aprovação.")
+        messages.success(self.request, f'Parabéns! Você adotou {animal.name}. Obrigado por fazer a diferença!')
+        return self.render_to_response(self.get_context_data(form=form, animal=animal, adoption_success=True))
 
     def get_context_data(self, **kwargs):
         
@@ -55,6 +57,7 @@ class AdoptionRequestView(FormView):
         animal_id = self.kwargs['animal_id']
         animal = get_object_or_404(Animal, id=animal_id)
         context['animal'] = animal
+        context['carers'] = Staff.objects.all()
         return context
 
 
