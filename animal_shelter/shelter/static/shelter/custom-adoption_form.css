@@ -1,3 +1,7 @@
+.container {
+  height: 100%;
+}
+
 .input-custom {
     border: 1px solid #F25287;
     border-radius: 50px;
@@ -23,4 +27,8 @@
     border: none;
     padding: 10px;
     margin-bottom: 60px;
+}
+
+.info-pet {
+  font-family: 'Montserrat';
 }
