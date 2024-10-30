@@ -26,16 +26,15 @@ class Animal(models.Model):
         ordering = ['name']
 
 class Adoption(models.Model):
-    status_options =(
-        ('Under Review', 'Em análise'),
-        ('Not Adopted', 'Não adotado'),
-        ('Adopted', 'Adotado')
+    status =(
+        ('Not Adopted', 'Not Adopted'),
+        ('Adopted', 'Adopted')
     )
     animal_name = models.CharField(max_length=30)
     species = models.CharField(max_length=30)
     adopter = models.CharField(max_length=30)
     request_date = models.DateField(help_text='aaaa/mm/dd')
-    status = models.CharField(max_length=30, choices=status_options, default='Under Review')
+    status = models.CharField(max_length=30)
 
     def __str__(self):
         return f'{self.animal_name}: {self.species} - {self.adopter} - {self.request_date} - {self.status}'
@@ -44,6 +43,7 @@ class Adoption(models.Model):
         verbose_name = 'Adoption'
         verbose_name_plural = 'Adoptions'
         ordering = ['request_date']
+
 
 
 class Staff(models.Model):
