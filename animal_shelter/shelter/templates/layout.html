@@ -25,10 +25,12 @@
                 <i class="fa-solid fa-bars" style="color: white;"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <form method="get" class="d-flex ms-auto form-custom" role="search">
-                    <input class="form-control me-2" type="text" name="search_term" placeholder="Buscar animalzinho" aria-label="Buscar animalzinho" value="{{ search_query }}">
-                    <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-                </form>
+                {% if request.path == '/' %}  <!-- Condicional para verificar se a rota é a página inicial -->
+                    <form method="get" class="d-flex ms-auto form-custom" role="search">
+                        <input class="form-control me-2" type="text" name="search_term" placeholder="Buscar animalzinho" aria-label="Buscar animalzinho" value="{{ search_query }}">
+                        <button class="btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    </form>
+                {% endif %}
             </div>
         </div>
     </nav>

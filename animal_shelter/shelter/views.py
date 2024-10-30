@@ -45,7 +45,8 @@ class AdoptionRequestView(FormView):
 
         
         adoption = form.save(commit=False)
-        adoption.animal = animal  
+        adoption.animal = animal
+        adoption.status = 'Em análise' 
         adoption.save()  
 
         messages.success(self.request, f'Parabéns! Você adotou {animal.name}. Obrigado por fazer a diferença!')
@@ -63,6 +64,18 @@ class AdoptionRequestView(FormView):
 
 # A nova View de Detalhes do Animal
 class AnimalDetailView(DetailView):
-    model = Animal  # O modelo que será utilizado
-    template_name = 'animal_detail.html'  # O template que será renderizado
-    context_object_name = 'animal'  # O nome da variável no template
+    model = Animal  
+    template_name = 'animal_detail.html'
+    context_object_name = 'animal'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        animal = self.get_object()
+
+        last_adoption = Adoption.objects.filter(animal_name=animal.name).last()
+        if last_adoption:
+            context['adoption_status'] = last_adoption.status
+        else:
+            context['adoption_status'] = None  
+
+        return context

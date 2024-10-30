@@ -9,24 +9,26 @@
 
     <div class="row d-flex list-animals">
         {% for animal in animals %}
-        <div class="card card-custom">
-            {% if animal.image %}
-            <div class="card-img-custom">
-                <img class="card-img-top" src="{{ animal.image.url }}" alt="{{ animal.name }}">
-            </div>
+            {% if animal.is_available.exists == false %}
+                <div class="card card-custom">
+                    {% if animal.image %}
+                        <div class="card-img-custom">
+                            <img class="card-img-top" src="{{ animal.image.url }}" alt="{{ animal.name }}">
+                        </div>
+                    {% endif %}
+                    <div class="card-body card-body-custom">
+                        <h5 class="card-title">{{ animal.name }}</h5>
+                        <p class="card-text">
+                            Raça: {{ animal.breed }}
+                        </p>
+                        <a href="/animal/{{ animal.id }}" class="btn btn-custom">Quero Adotar</a>
+                    </div>
+                </div>
             {% endif %}
-            <div class="card-body card-body-custom">
-                <h5 class="card-title">{{ animal.name }}</h5>
-                <p class="card-text">
-                    Raça: {{animal.breed}}
-                </p>
-                <a href="/animal/{{animal.id}}" class="btn btn-custom">Quero Adotar</a>
-            </div>
-        </div>
         {% empty %}
-        <div class="col-12">
-            <h3>Nenhum animal encontrado com esses filtros</h3>
-        </div>
+            <div class="col-12">
+                <h3>Nenhum animal encontrado com esses filtros</h3>
+            </div>
         {% endfor %}
     </div>
 </div>

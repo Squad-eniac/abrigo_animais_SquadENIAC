@@ -1,37 +1,32 @@
-{% load static %}
+{% extends 'layout.html' %}  
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalhes do Animal</title>
-    <link rel="stylesheet" href="{% static 'shelter/custom.css' %}">
-    <link rel="stylesheet" href="{% static 'shelter/custom-animal_detail.css' %}">
-</head>
-<body>
-    {% block content %}
-    <div class="container mt-5">
-        <h1 class="text-center title">{{ animal.name }}</h1>
+{% load static %}  
 
-        <div class="row">
-            <div class="col-md-6 text-center">
-                {% if animal.image %}
-                    <img src="{{ animal.image.url }}" alt="{{ animal.name }}" class="img-fluid mb-4">
-                {% else %}
-                    <img src="{% static 'default_image.png' %}" alt="Imagem padrão" class="img-fluid mb-4">
-                {% endif %}
-            </div>
-            <div class="col-md-6">
-                <p><strong>Idade:</strong> {{ animal.age }} anos</p>
-                <p><strong>Raça:</strong> {{ animal.breed }}</p>
-                <p><strong>Descrição:</strong> {{ animal.description }}</p>
-                <p><strong>Histórico de saúde:</strong> {{ animal.health_history }}</p>
-                <p><strong>Disponível para adoção:</strong> {% if animal.is_available %} Sim {% else %} Não {% endif %}</p>
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center title">{{ animal.name }}</h1>
+
+    <div class="row">
+        <div class="col-md-6 text-center">
+            {% if animal.image %}
+                <img src="{{ animal.image.url }}" alt="{{ animal.name }}" class="img-fluid mb-4">
+            {% else %}
+                <img src="{% static 'default_image.png' %}" alt="Imagem padrão" class="img-fluid mb-4">
+            {% endif %}
+        </div>
+        <div class="col-md-6">
+            <p><strong>Idade:</strong> {{ animal.age }} anos</p>
+            <p><strong>Raça:</strong> {{ animal.breed }}</p>
+            <p><strong>Descrição:</strong> {{ animal.description }}</p>
+            <p><strong>Histórico de saúde:</strong> {{ animal.health_history }}</p>
+            <p><strong>Disponível para adoção:</strong> {% if animal.is_available %} Sim {% else %} Não {% endif %}</p>
+
+            {% if adoption_status == 'Under Review' %}
+                <p class="text-warning">Animal em processo de adoção.</p>
+            {% else %}
                 <a href="{% url 'adoption_request' animal.id %}" class="btn btn-primary mt-3">Clique aqui para adotar</a>
-            </div>
+            {% endif %}
         </div>
     </div>
-    {% endblock %}
-</body>
-</html>
+</div>
+{% endblock %}

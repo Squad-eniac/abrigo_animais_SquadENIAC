@@ -45,6 +45,8 @@ class Adoption(models.Model):
         ordering = ['request_date']
 
 
+
+
 class Staff(models.Model):
     name = models.CharField(max_length=30)
     phone = models.CharField(max_length=30)
