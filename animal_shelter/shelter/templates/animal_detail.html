@@ -55,7 +55,7 @@
             </div>
             <div class="btn-detail-adoption">
                 {% if adoption_status == 'Under Review' %}
-
+                    <!-- <p>Em processo de adoção</p> -->
                 {% else %}
                     <a href="{% url 'adoption_request' animal.id %}" class="btn btn-custom btn-detail-custom">Adotar {{ animal.name }}</a>
                 {% endif %}
