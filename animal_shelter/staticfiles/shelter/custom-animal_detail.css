@@ -1,3 +1,7 @@
+.container-fluid-custom {
+    height: 100vh;
+}
+
 .animal-name {
     color: #FFEFEF;
     -webkit-text-stroke-width: 1px;
@@ -52,7 +56,7 @@
     font-family: 'Montserrat';
 }
 
-
+/* responsividade para mobile */
 @media (max-width: 991.98px) {
     .animal-detail {
         flex-direction: column;

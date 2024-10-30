@@ -2,7 +2,6 @@
 
 body {
     height: 100vh;
-    overflow: hidden;
 }
 
 /* cor de fundo da navbar/footer */
@@ -18,8 +17,6 @@ body {
     color: white;
     text-decoration: none;
 }
-
-
 
 .navbar-brand-custom:hover {
     color: white;

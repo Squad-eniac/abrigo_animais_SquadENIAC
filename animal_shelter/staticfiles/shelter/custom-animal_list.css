@@ -1,11 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Protest+Strike&display=swap');
 
-/* manter a altura do container e evitar cortes no conteúdo */
-.container {
-    height: 80%;
-    overflow-y: scroll;
-}
-
 /*  alinhamento, cor e margin da div*/
 .title {
     text-align: center;
