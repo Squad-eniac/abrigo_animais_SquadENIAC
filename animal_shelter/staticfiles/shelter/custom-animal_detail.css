@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Protest+Strike&display=swap');
+
+body {
+    height: auto; 
+    overflow: auto; 
+}
+
+
+.title {
+    font-family: 'Protest Strike';
+    font-size: 36px; 
+    color: #F25287; 
+    margin-bottom: 20px; 
+}
+
+
+.img-fluid {
+    border-radius: 10px; 
+    max-width: 100%; 
+    height: auto; 
+    margin-bottom: 1.5rem; 
+}
+
+
+p {
+    font-family: 'Montserrat', serif;
+    font-size: 18px;
+    color: #333; 
+    margin-bottom: 15px; 
+}
+
+
+.btn-primary {
+    background-color: #F25287; 
+    border-color: #F25287; 
+}
+
+.btn-primary:hover {
+    background-color: #D03D70; 
+    border-color: #D03D70; 
+}
+
+
+.footer-custom {
+    background-color: #F25287;
+    font-family: 'Protest Strike';
+    font-size: 20px;
+    min-height: 80px;
+    color: white; 
+}
+
+.footer-item-custom,
+.footer-item-custom a {
+    color: white;
+    gap: 5px;
+    text-decoration: none;
+}
+
+.footer-item-custom:hover {
+    color: white;
+}
+
+.footer-item-custom a:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
+}
+
+/* Responsividade para mobile */
+@media (max-width: 991px) {
+    .form-custom {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
