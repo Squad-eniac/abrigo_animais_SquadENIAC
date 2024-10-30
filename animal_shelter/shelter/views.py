@@ -45,7 +45,8 @@ class AdoptionRequestView(FormView):
 
         
         adoption = form.save(commit=False)
-        adoption.animal = animal  
+        adoption.animal = animal
+        adoption.status = 'Em análise' 
         adoption.save()  
 
         messages.success(self.request, f'Parabéns! Você adotou {animal.name}. Obrigado por fazer a diferença!')

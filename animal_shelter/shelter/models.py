@@ -46,6 +46,7 @@ class Adoption(models.Model):
 
 
 
+
 class Staff(models.Model):
     name = models.CharField(max_length=30)
     phone = models.CharField(max_length=30)
