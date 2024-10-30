@@ -28,7 +28,10 @@
                 <p><strong>Descrição:</strong> {{ animal.description }}</p>
                 <p><strong>Histórico de saúde:</strong> {{ animal.health_history }}</p>
                 <p><strong>Disponível para adoção:</strong> {% if animal.is_available %} Sim {% else %} Não {% endif %}</p>
-                <a href="{% url 'adoption_request' animal.id %}" class="btn btn-primary mt-3">Clique aqui para adotar</a>
+                
+                {% if adoption_status != 'Under Review' %}
+                    <a href="{% url 'adoption_request' animal.id %}" class="btn btn-primary mt-3">Clique aqui para adotar</a>
+                {% endif %}
             </div>
         </div>
     </div>

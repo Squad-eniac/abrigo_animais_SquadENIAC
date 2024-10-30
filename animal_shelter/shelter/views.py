@@ -67,3 +67,16 @@ class AnimalDetailView(DetailView):
     model = Animal  # O modelo que será utilizado
     template_name = 'animal_detail.html'  # O template que será renderizado
     context_object_name = 'animal'  # O nome da variável no template
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        animal = self.get_object()
+
+        # Obtenha o status da última adoção do animal
+        last_adoption = Adoption.objects.filter(animal_name=animal.name).last()  # Pega a última adoção associada
+        if last_adoption:
+            context['adoption_status'] = last_adoption.status
+        else:
+            context['adoption_status'] = None  # Nenhuma adoção associada
+
+        return context
